@@ -1,0 +1,52 @@
+.click{
+    display: inline-block;
+    padding: .85rem 1.4rem;
+    text-decoration: none;
+    background:$primary ;
+    color: #fff;
+    font-size: 1.15rem;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    border-radius: .3rem;
+    cursor: pointer;
+
+    &:hover{
+        color: $secondary;
+    }
+}
+
+.center{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.page{
+    @extend .center;
+    max-width: 1300px;
+    padding: 7rem 2rem 5rem;
+
+    .heading{
+        text-align: center;
+        font-size: 1.95rem;
+        color: $secondary;
+        font-weight: 500;
+    }
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.background{
+    background-position: center;
+    background-size: cover;
+}
+
+.body{
+    min-height: 100vh;
+}

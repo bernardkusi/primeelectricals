@@ -1,0 +1,477 @@
+$primary :rgb(9, 123, 110);
+$secondary :rgb(255, 132, 0);
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+@import './reusables';
+    
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem 2rem;
+    background: $primary;
+    height: 75px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 .1rem .2rem rgba(0, 0, 0, 0.423);
+
+    &.active{
+        height: auto;
+    }
+
+    .logo{
+        font-size: 2rem;
+        text-decoration: none;
+        color: #fff;
+        font-weight: 700;
+        align-self: center;
+
+        span{
+            color: $secondary;
+        }
+    }
+
+    ul{
+        display: flex;
+        gap: 1.5rem;
+        align-self: flex-end;
+
+        a{
+            text-decoration: none;
+            color: #fff;
+            font-size: .95rem;
+
+            &:hover{
+                color: $secondary;
+            }
+        }
+    }
+
+    .bars{
+        position: absolute;
+        width: 25px;
+        height: 19px;
+        // background: red;
+        right: 2rem;
+        top: 2rem;
+        z-index: 20;
+        display:none;
+
+        .bar{
+            width: 100%;
+            height: 3px;
+            background: $secondary;
+            border-radius: 2px;
+            position: relative;
+
+            &::before,&::after{
+                content: "";
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                background: $secondary;
+                top: 8px;
+            }
+
+            &::after{
+                top: 16px;
+            }
+        }
+    }
+}
+
+
+#home{
+    // background: lightgray;
+    background-size: cover;
+    background-position: center;
+    @extend .background;
+    height: 100vh;
+    padding: 7rem 2rem 5rem;
+
+    .intro{
+        padding-top: 7vh;
+        max-width: 45rem;
+
+        h1{
+            font-size: 3.8rem;
+            font-weight: 500;
+            color: #fff;
+
+            span{
+                color: $secondary;
+            }
+        }
+
+        p{
+            font-size: 1.35rem;
+            color: lighten($secondary,15);
+            padding: 1.2rem 0;
+        }
+    }
+}
+
+
+#about{
+    .aboutflex{
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+        padding: 4rem 0 2rem;
+        align-items: center;
+
+        .aboutimage{
+            width: 45%;
+            height: 23rem;
+            background: lightgray;
+        }
+
+        .abouttext{
+            width: 50%;
+
+            .click{
+                transform: scale(.85);
+                transform-origin: 0;
+                margin: .6rem 0;
+            }
+        }
+    }
+}
+
+#services{
+    background: lightgrey;
+    background-position: center;
+    background-size: cover;
+    @extend .background;
+    .heading{
+        color: #fff;
+    }
+
+    .serviceflex{
+        display: flex;
+        gap: 2rem;
+        padding: 4rem 0;
+
+        .service{
+            width: 18rem;
+            height: 14rem;
+            // background: #fff;
+            
+            cursor: pointer;
+           
+            .service2{
+                background: #fff;
+                width: 100%;
+                height: 100%;
+                transition: all .4s;
+                border-radius: .4rem;
+                box-shadow: 0 0 .7rem rgba(0, 0, 0, 0.092);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .back{
+                    display: none;
+                    transform: rotatey(-180deg);
+                }
+
+            }
+
+            &:hover>div{
+                transform: rotatey(180deg);
+                background: lighten($primary,5);
+            }
+
+            &:hover .front{
+                display: none;
+            }
+            &:hover .back{
+                display: block;
+            }
+        }
+    }
+
+}
+
+#products{
+    .productgrid{
+        display: grid;
+        padding: 4rem 0 2rem;
+        grid-template-columns: repeat(4,1fr);
+        gap: 2rem;
+        // grid-auto-rows: 16rem;
+
+
+        .product{
+            // background: red;
+            border-radius: .1rem;
+            // box-shadow: 0 0 .3rem rgba(0, 0, 0, 0.253);
+            box-shadow: 0 0 .2rem lightgray;
+            overflow: hidden;
+
+            .productimage{
+                height: 10rem;
+                background: lightgray;
+            }
+
+            .productdetails{
+                padding: .4rem;
+                
+                .productname{
+                    color: $primary;
+                }
+
+                .brand{
+                    color: gray;
+                    font-size: .8rem;
+                }
+
+                .price{
+                    font-size: .9rem;
+                    color: grey;
+                }
+
+                .rating{
+                    color: $secondary;
+                }
+
+                .click{
+                    transform-origin: 0 ;
+                    transform: scale(.69);
+                }
+            }
+        }
+    }
+}
+
+
+#blog{
+    background: darken($primary,4);
+    .heading{
+        color: #fff;
+    }
+
+    .blogflex{
+        padding: 4rem 0;
+        display: flex;
+        gap: 3rem;
+
+        .blog{
+            width: 50%;
+            // height: 30rem;
+            background: #fff;
+            box-shadow: 0 0 .2rem lightgray;
+
+            .blogimage{
+                background: lightgray;
+                height: 17rem;
+            }
+
+            .blogdetails{
+                padding: .6rem;
+
+                .blogname{
+                    color: $secondary;
+                }
+
+                .blogtext{
+                    color: gray;
+                    font-size: .85rem;
+                    padding: .6rem 0;
+                }
+
+                .click{
+                    transform-origin: 0;
+                    transform: scale(.8);
+                }
+            }
+        }
+    }
+}
+
+#testimonials{
+    .testimonialflex{
+        display: flex;
+        gap: 2rem;
+        padding: 4rem 0 2rem;
+
+        &>div{
+            width: 50%;
+            height: 27rem;
+            // background: red;
+            
+        }
+
+        .testimonial{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 1.3rem;
+            height: auto;
+            
+
+            &>div{
+                background: #fff;
+                box-shadow: 0 0 .3rem lightgray;
+                border-radius: .3rem;
+                padding: 1rem;
+                .person{
+                    display: flex;
+                    align-items: center;
+                    gap: 1.3rem;
+                    padding-bottom: .5rem;
+    
+                    .image{
+                    width: 6rem;
+                    height: 6rem;
+                    background: lightgray;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    }
+
+                    .name{
+                        font-size: 1.1rem;
+                        color: $secondary;
+                        font-weight: 500;
+                    }
+                }
+
+                .text{
+                    color: rgb(82, 82, 82);
+                }
+            }
+        }
+
+        .image{
+            background: lightgray;
+        }
+    }
+}
+
+#contact{
+    .contact{
+        background: lightgray;
+        background-position: center;
+        background-size: cover;
+        padding: 3rem 1.5rem 5rem;
+        display: flex;
+        justify-content: flex-end;
+        margin: 4rem 0 5rem;
+
+        .form{
+            width: 32rem;
+            border-radius: .3rem;
+            padding: 1rem;
+            background: #fff;
+            form{
+                background: #fff;
+
+                .label{
+                    color: $secondary;
+                    font-size: 1.3rem;
+                    text-align: center;
+                    padding: 1rem 0;
+                }
+               .control{
+                   display: flex;
+                   flex-direction: column-reverse;
+                   margin-top: .6rem;
+
+                label{
+                    display: flex;
+                    font-size: .9rem;
+                    color:gray;
+                    padding: .3rem 0;
+                }
+
+                input,textarea{
+                    width: 100%;
+                    padding: .4rem;
+                    font-size: .9rem;
+                    border: 1px solid lightgray;
+                    outline: none;
+                    border-radius: .3rem;
+                    resize: none;
+                }
+               }
+
+               .click{
+                   transform-origin: 0;
+                   transform: scale(.85);
+                   margin-top: 1rem;
+               }
+            }
+        }
+    }
+}
+
+
+footer{
+    background: darken($primary,20);
+    padding: 4rem 2rem 7rem;
+    position: relative;
+
+    .footerflex{
+        display: flex;
+        gap: 2rem;
+        justify-content: space-between;
+        align-items: center;
+
+        p{
+           width: 40%;
+            color: #fff;
+            font-size:.93rem;
+            line-height: 140%;
+        }
+
+      .links{
+          display: flex;
+          justify-content: space-evenly;
+          width: 60%;
+          gap: 3rem;
+
+
+        ul{
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+            // padding: 0 2rem;
+            
+            a{
+                text-decoration: none;
+                color: #fff;
+                font-size: .9rem;
+
+                &:hover{
+                    color: $secondary;
+                }
+            }
+        }
+      }
+    }
+
+    .copy{
+        @extend .center;
+        position: absolute;
+        color: #fff;
+        font-size: .85rem;
+        bottom: 1rem
+    }
+}
+
+@import './media';

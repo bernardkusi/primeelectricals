@@ -1,13 +1,745 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
+
+.click {
+  display: inline-block;
+  padding: .85rem 1.4rem;
+  text-decoration: none;
+  background: #097b6e;
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  border-radius: .3rem;
+  cursor: pointer;
+}
+
+.click:hover {
+  color: #ff8400;
+}
+
+.center, .page, footer .copy {
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.page {
+  max-width: 1300px;
+  padding: 7rem 2rem 5rem;
+}
+
+.page .heading {
+  text-align: center;
+  font-size: 1.95rem;
+  color: #ff8400;
+  font-weight: 500;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.background, #home, #services {
+  background-position: center;
+  background-size: cover;
+}
+
+.body {
+  min-height: 100vh;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: .5rem 2rem;
+  background: #097b6e;
+  height: 75px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+  -webkit-box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.423);
+          box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.423);
+}
+
+header.active {
+  height: auto;
+}
+
+header .logo {
+  font-size: 2rem;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+header .logo span {
+  color: #ff8400;
+}
+
+header ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1.5rem;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+header ul a {
+  text-decoration: none;
+  color: #fff;
+  font-size: .95rem;
+}
+
+header ul a:hover {
+  color: #ff8400;
+}
+
+header .bars {
+  position: absolute;
+  width: 25px;
+  height: 19px;
+  right: 2rem;
+  top: 2rem;
+  z-index: 20;
+  display: none;
+}
+
+header .bars .bar {
+  width: 100%;
+  height: 3px;
+  background: #ff8400;
+  border-radius: 2px;
+  position: relative;
+}
+
+header .bars .bar::before, header .bars .bar::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: #ff8400;
+  top: 8px;
+}
+
+header .bars .bar::after {
+  top: 16px;
+}
+
+#home {
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  padding: 7rem 2rem 5rem;
+}
+
+#home .intro {
+  padding-top: 7vh;
+  max-width: 45rem;
+}
+
+#home .intro h1 {
+  font-size: 3.8rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+#home .intro h1 span {
+  color: #ff8400;
+}
+
+#home .intro p {
+  font-size: 1.35rem;
+  color: #ffa94d;
+  padding: 1.2rem 0;
+}
+
+#about .aboutflex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 2rem;
+  padding: 4rem 0 2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#about .aboutflex .aboutimage {
+  width: 45%;
+  height: 23rem;
+  background: lightgray;
+}
+
+#about .aboutflex .abouttext {
+  width: 50%;
+}
+
+#about .aboutflex .abouttext .click {
+  -webkit-transform: scale(0.85);
+          transform: scale(0.85);
+  -webkit-transform-origin: 0;
+          transform-origin: 0;
+  margin: .6rem 0;
+}
+
+#services {
+  background: lightgrey;
+  background-position: center;
+  background-size: cover;
+}
+
+#services .heading {
+  color: #fff;
+}
+
+#services .serviceflex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2rem;
+  padding: 4rem 0;
+}
+
+#services .serviceflex .service {
+  width: 18rem;
+  height: 14rem;
+  cursor: pointer;
+}
+
+#services .serviceflex .service .service2 {
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all .4s;
+  transition: all .4s;
+  border-radius: .4rem;
+  -webkit-box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.092);
+          box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.092);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#services .serviceflex .service .service2 .back {
+  display: none;
+  -webkit-transform: rotatey(-180deg);
+          transform: rotatey(-180deg);
+}
+
+#services .serviceflex .service:hover > div {
+  -webkit-transform: rotatey(180deg);
+          transform: rotatey(180deg);
+  background: #0b9383;
+}
+
+#services .serviceflex .service:hover .front {
+  display: none;
+}
+
+#services .serviceflex .service:hover .back {
+  display: block;
+}
+
+#products .productgrid {
+  display: -ms-grid;
+  display: grid;
+  padding: 4rem 0 2rem;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+#products .productgrid .product {
+  border-radius: .1rem;
+  -webkit-box-shadow: 0 0 .2rem lightgray;
+          box-shadow: 0 0 .2rem lightgray;
+  overflow: hidden;
+}
+
+#products .productgrid .product .productimage {
+  height: 10rem;
+  background: lightgray;
+}
+
+#products .productgrid .product .productdetails {
+  padding: .4rem;
+}
+
+#products .productgrid .product .productdetails .productname {
+  color: #097b6e;
+}
+
+#products .productgrid .product .productdetails .brand {
+  color: gray;
+  font-size: .8rem;
+}
+
+#products .productgrid .product .productdetails .price {
+  font-size: .9rem;
+  color: grey;
+}
+
+#products .productgrid .product .productdetails .rating {
+  color: #ff8400;
+}
+
+#products .productgrid .product .productdetails .click {
+  -webkit-transform-origin: 0;
+          transform-origin: 0;
+  -webkit-transform: scale(0.69);
+          transform: scale(0.69);
+}
+
+#blog {
+  background: #08685d;
+}
+
+#blog .heading {
+  color: #fff;
+}
+
+#blog .blogflex {
+  padding: 4rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 3rem;
+}
+
+#blog .blogflex .blog {
+  width: 50%;
+  background: #fff;
+  -webkit-box-shadow: 0 0 .2rem lightgray;
+          box-shadow: 0 0 .2rem lightgray;
+}
+
+#blog .blogflex .blog .blogimage {
+  background: lightgray;
+  height: 17rem;
+}
+
+#blog .blogflex .blog .blogdetails {
+  padding: .6rem;
+}
+
+#blog .blogflex .blog .blogdetails .blogname {
+  color: #ff8400;
+}
+
+#blog .blogflex .blog .blogdetails .blogtext {
+  color: gray;
+  font-size: .85rem;
+  padding: .6rem 0;
+}
+
+#blog .blogflex .blog .blogdetails .click {
+  -webkit-transform-origin: 0;
+          transform-origin: 0;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+}
+
+#testimonials .testimonialflex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2rem;
+  padding: 4rem 0 2rem;
+}
+
+#testimonials .testimonialflex > div {
+  width: 50%;
+  height: 27rem;
+}
+
+#testimonials .testimonialflex .testimonial {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 1.3rem;
+  height: auto;
+}
+
+#testimonials .testimonialflex .testimonial > div {
+  background: #fff;
+  -webkit-box-shadow: 0 0 .3rem lightgray;
+          box-shadow: 0 0 .3rem lightgray;
+  border-radius: .3rem;
+  padding: 1rem;
+}
+
+#testimonials .testimonialflex .testimonial > div .person {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1.3rem;
+  padding-bottom: .5rem;
+}
+
+#testimonials .testimonialflex .testimonial > div .person .image {
+  width: 6rem;
+  height: 6rem;
+  background: lightgray;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+#testimonials .testimonialflex .testimonial > div .person .name {
+  font-size: 1.1rem;
+  color: #ff8400;
+  font-weight: 500;
+}
+
+#testimonials .testimonialflex .testimonial > div .text {
+  color: #525252;
+}
+
+#testimonials .testimonialflex .image {
+  background: lightgray;
+}
+
+#contact .contact {
+  background: lightgray;
+  background-position: center;
+  background-size: cover;
+  padding: 3rem 1.5rem 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin: 4rem 0 5rem;
+}
+
+#contact .contact .form {
+  width: 32rem;
+  border-radius: .3rem;
+  padding: 1rem;
+  background: #fff;
+}
+
+#contact .contact .form form {
+  background: #fff;
+}
+
+#contact .contact .form form .label {
+  color: #ff8400;
+  font-size: 1.3rem;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+#contact .contact .form form .control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  margin-top: .6rem;
+}
+
+#contact .contact .form form .control label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: .9rem;
+  color: gray;
+  padding: .3rem 0;
+}
+
+#contact .contact .form form .control input, #contact .contact .form form .control textarea {
+  width: 100%;
+  padding: .4rem;
+  font-size: .9rem;
+  border: 1px solid lightgray;
+  outline: none;
+  border-radius: .3rem;
+  resize: none;
+}
+
+#contact .contact .form form .click {
+  -webkit-transform-origin: 0;
+          transform-origin: 0;
+  -webkit-transform: scale(0.85);
+          transform: scale(0.85);
+  margin-top: 1rem;
+}
+
+footer {
+  background: #021c19;
+  padding: 4rem 2rem 7rem;
+  position: relative;
+}
+
+footer .footerflex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer .footerflex p {
+  width: 40%;
+  color: #fff;
+  font-size: .93rem;
+  line-height: 140%;
+}
+
+footer .footerflex .links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 60%;
+  gap: 3rem;
+}
+
+footer .footerflex .links ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: .5rem;
+}
+
+footer .footerflex .links ul a {
+  text-decoration: none;
+  color: #fff;
+  font-size: .9rem;
+}
+
+footer .footerflex .links ul a:hover {
+  color: #ff8400;
+}
+
+footer .copy {
+  position: absolute;
+  color: #fff;
+  font-size: .85rem;
+  bottom: 1rem;
+}
+
+@media (max-width: 1080px) {
+  #products .productgrid {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+  }
+  #services .serviceflex {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  #services .serviceflex .service {
+    width: 22rem;
+  }
+}
+
+@media (max-width: 850px) {
+  header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    gap: 2.5rem;
+    padding-top: 1.5rem;
+    overflow: hidden;
+  }
+  header ul {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+  }
+  header .logo {
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+  }
+  header .bars {
+    display: block;
+  }
+  #home {
+    padding: 7rem 1rem 5rem;
+  }
+  #home .intro h1 {
+    font-size: 3.2rem;
+    margin-top: 3vh;
+  }
+  #home .intro p {
+    font-size: 1.25rem;
+    padding: 1.2rem 0;
+  }
+  .page {
+    padding: 5rem .7rem 3rem;
+  }
+  #products .productgrid {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+  #about .aboutflex {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #about .aboutflex .aboutimage {
+    width: 95%;
+    height: 23rem;
+  }
+  #about .aboutflex .abouttext {
+    width: 95%;
+  }
+  #testimonials .testimonialflex {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #testimonials .testimonialflex > div {
+    width: 100%;
+  }
+  #blog .blogflex {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 3rem;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #blog .blogflex .blog {
+    width: 95%;
+  }
+  .footerflex {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: start !important;
+        -ms-flex-align: start !important;
+            align-items: flex-start !important;
+  }
+  .footerflex p {
+    width: 100% !important;
+  }
+  .footerflex .links {
+    width: 100% !important;
+    -ms-flex-wrap: wrap !important;
+        flex-wrap: wrap !important;
+  }
+}
+
+@media (max-width: 550px) {
+  #home {
+    padding: 7rem 1rem 5rem;
+  }
+  #home .intro h1 {
+    font-size: 2.8rem;
+    margin-top: 3vh;
+  }
+  #home .intro p {
+    font-size: 1.15rem;
+  }
+  #products .productgrid {
+    gap: .5rem;
+  }
+  #products .productgrid .product {
+    border-radius: .1rem;
+    -webkit-box-shadow: 0 0 .2rem lightgray;
+            box-shadow: 0 0 .2rem lightgray;
+    overflow: hidden;
+  }
+  #products .productgrid .product .productimage {
+    height: 9rem;
+    background: lightgray;
+  }
+  #products .productgrid .product .productdetails {
+    padding: .2rem;
+  }
+  #products .productgrid .product .productdetails .productname {
+    font-size: .9rem;
+  }
+  #products .productgrid .product .productdetails .description {
+    font-size: .8rem;
+  }
+  .footerflex .links {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 3rem;
+  }
+}
+/*# sourceMappingURL=index.css.map */
