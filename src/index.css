@@ -81,10 +81,13 @@ header {
   z-index: 10;
   -webkit-box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.423);
           box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.423);
+  -webkit-transition: all .4s;
+  transition: all .4s;
 }
 
 header.active {
   height: auto;
+  padding-bottom: 1.5rem;
 }
 
 header .logo {
@@ -253,12 +256,34 @@ header .bars .bar::after {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
 #services .serviceflex .service .service2 .back {
   display: none;
   -webkit-transform: rotatey(-180deg);
           transform: rotatey(-180deg);
+  height: 100%;
+  padding: 1rem;
+  background: #fff;
+}
+
+#services .serviceflex .service .service2 .back .title {
+  font-size: 1.1rem;
+  color: #097b6e;
+  padding-top: 2rem;
+}
+
+#services .serviceflex .service .service2 .back .body {
+  color: grey;
+  font-size: .95rem;
+  padding: .7rem 0;
+}
+
+#services .serviceflex .service .service2 .front i {
+  font-size: 4.3rem;
+  color: #ff8400;
 }
 
 #services .serviceflex .service:hover > div {
@@ -292,7 +317,7 @@ header .bars .bar::after {
 }
 
 #products .productgrid .product .productimage {
-  height: 10rem;
+  height: 12rem;
   background: lightgray;
 }
 
@@ -307,6 +332,7 @@ header .bars .bar::after {
 #products .productgrid .product .productdetails .brand {
   color: gray;
   font-size: .8rem;
+  float: right;
 }
 
 #products .productgrid .product .productdetails .price {

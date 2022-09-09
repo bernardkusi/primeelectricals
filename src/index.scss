@@ -29,9 +29,11 @@ header{
     top: 0;
     z-index: 10;
     box-shadow: 0 .1rem .2rem rgba(0, 0, 0, 0.423);
+    transition: all .4s;
 
     &.active{
         height: auto;
+        padding-bottom: 1.5rem;
     }
 
     .logo{
@@ -184,10 +186,34 @@ header{
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                position: relative;
+                overflow: hidden;
 
                 .back{
                     display: none;
                     transform: rotatey(-180deg);
+                    height: 100%;
+                    padding: 1rem;
+                    background: #fff;
+
+                    .title{
+                        font-size: 1.1rem;
+                        color: $primary;
+                        padding-top: 2rem;
+                    }
+
+                    .body{
+                        color: grey;
+                        font-size: .95rem;
+                        padding: .7rem 0;
+                    }
+                }
+
+                .front{
+                    i{
+                        font-size: 4.3rem;
+                        color: $secondary;
+                    }
                 }
 
             }
@@ -225,7 +251,7 @@ header{
             overflow: hidden;
 
             .productimage{
-                height: 10rem;
+                height: 12rem;
                 background: lightgray;
             }
 
@@ -239,6 +265,7 @@ header{
                 .brand{
                     color: gray;
                     font-size: .8rem;
+                    float: right;
                 }
 
                 .price{
