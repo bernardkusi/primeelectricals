@@ -88,17 +88,6 @@ const Products = () => {
         <div className="productgrid">
         {items.map(element=><Product key={element.id} product={element}/>)}
         
-        {/* <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product /> */}
         
         </div>
       </div>

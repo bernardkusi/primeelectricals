@@ -22,6 +22,10 @@
     transform: translateX(-50%);
 }
 
+.full{
+    min-height: 100vh !important;
+}
+
 
 .page{
     @extend .center;
@@ -34,12 +38,103 @@
         color: $secondary;
         font-weight: 500;
     }
+
+    &>.form{
+        @extend .center;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        width: 96%;
+        max-width: 420px;
+        border-radius: .3rem;
+        padding: 1rem;
+        background: #fff;
+        box-shadow: 0 0 .2rem rgba(0, 0, 0, 0.21);
+        form{
+            background: #fff;
+
+            .label{
+                color: $secondary;
+                font-size: 1.3rem;
+                text-align: center;
+                padding: 1rem 0;
+            }
+
+            .redirect{
+                font-size: .9rem;
+                color: grey;
+                padding: .6rem 0;
+
+                a{
+                    color: $secondary;
+                }
+            }
+           .control{
+               display: flex;
+               flex-direction: column-reverse;
+               margin-top: .6rem;
+
+            label{
+                display: flex;
+                font-size: .9rem;
+                color:gray;
+                padding: .3rem 0;
+            }
+
+            input,textarea{
+                width: 100%;
+                padding: .4rem;
+                font-size: .9rem;
+                border: 1px solid lightgray;
+                outline: none;
+                border-radius: .3rem;
+                resize: none;
+            }
+           }
+
+           .click{
+               transform-origin: 0;
+               transform: scale(.85);
+               margin-top: 1rem;
+           }
+        }
+    }
 }
 
 img{
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.item{
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 0 .2rem lightgray;
+
+    .image{
+        width: 100%;
+        max-width: 400px;
+    }
+    .details{
+        padding: .4rem;
+        align-self: center;
+        .itemname{
+            color: $primary;
+            font-weight: 500;
+        }
+        .description{
+            color: grey;
+            max-width: 600px;
+            font-size: .85rem;
+            padding: .4rem 0;
+        }
+        .rating{
+            color: $secondary;
+            padding-bottom: .8rem;
+        }
+    }
 }
 
 .background{

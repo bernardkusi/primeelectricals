@@ -30,11 +30,15 @@ body {
   color: #ff8400;
 }
 
-.center, .page, footer .copy {
+.center, .page, .page > .form, footer .copy {
   position: relative;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+}
+
+.full {
+  min-height: 100vh !important;
 }
 
 .page {
@@ -49,11 +53,123 @@ body {
   font-weight: 500;
 }
 
+.page > .form {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 96%;
+  max-width: 420px;
+  border-radius: .3rem;
+  padding: 1rem;
+  background: #fff;
+  -webkit-box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.21);
+          box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.21);
+}
+
+.page > .form form {
+  background: #fff;
+}
+
+.page > .form form .label {
+  color: #ff8400;
+  font-size: 1.3rem;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.page > .form form .redirect {
+  font-size: .9rem;
+  color: grey;
+  padding: .6rem 0;
+}
+
+.page > .form form .redirect a {
+  color: #ff8400;
+}
+
+.page > .form form .control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  margin-top: .6rem;
+}
+
+.page > .form form .control label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: .9rem;
+  color: gray;
+  padding: .3rem 0;
+}
+
+.page > .form form .control input, .page > .form form .control textarea {
+  width: 100%;
+  padding: .4rem;
+  font-size: .9rem;
+  border: 1px solid lightgray;
+  outline: none;
+  border-radius: .3rem;
+  resize: none;
+}
+
+.page > .form form .click {
+  -webkit-transform-origin: 0;
+          transform-origin: 0;
+  -webkit-transform: scale(0.85);
+          transform: scale(0.85);
+  margin-top: 1rem;
+}
+
 img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2rem;
+  margin: 2rem 0;
+  -webkit-box-shadow: 0 0 .2rem lightgray;
+          box-shadow: 0 0 .2rem lightgray;
+}
+
+.item .image {
+  width: 100%;
+  max-width: 400px;
+}
+
+.item .details {
+  padding: .4rem;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.item .details .itemname {
+  color: #097b6e;
+  font-weight: 500;
+}
+
+.item .details .description {
+  color: grey;
+  max-width: 600px;
+  font-size: .85rem;
+  padding: .4rem 0;
+}
+
+.item .details .rating {
+  color: #ff8400;
+  padding-bottom: .8rem;
 }
 
 .background, #home, #services {
@@ -72,7 +188,7 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: .5rem 2rem;
+  padding: .5rem 3rem;
   background: #097b6e;
   height: 75px;
   position: fixed;
@@ -117,6 +233,10 @@ header ul a {
   text-decoration: none;
   color: #fff;
   font-size: .95rem;
+}
+
+header ul a i {
+  font-size: 1.5rem;
 }
 
 header ul a:hover {
@@ -631,6 +751,7 @@ footer .copy {
         -ms-flex-align: start;
             align-items: flex-start;
     gap: 2.5rem;
+    padding: .5rem 1rem;
     padding-top: 1.5rem;
     overflow: hidden;
   }
@@ -641,6 +762,15 @@ footer .copy {
             flex-direction: column;
     -ms-flex-item-align: start;
         align-self: flex-start;
+  }
+  header ul:last-of-type {
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    -ms-flex-item-align: center !important;
+        -ms-grid-row-align: center !important;
+        align-self: center !important;
   }
   header .logo {
     -ms-flex-item-align: start;
@@ -724,6 +854,17 @@ footer .copy {
     width: 100% !important;
     -ms-flex-wrap: wrap !important;
         flex-wrap: wrap !important;
+  }
+  .item {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .item .image {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
   }
 }
 

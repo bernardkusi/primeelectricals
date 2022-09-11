@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import {Link} from 'react-router-dom'
 
 const Header = () => {
 
@@ -6,16 +7,22 @@ const Header = () => {
 
   return (
     <header className={open && 'active'}>
-        <a href="#" className="logo">Prime<span>Electricals</span></a>
+        <Link to="/" className="logo">Prime<span>Electricals</span></Link>
 
 
         <ul>
-            <a href="#">Home</a>
-            <a href="#about">About</a>
-            <a href="#">Services</a>
-            <a href="#products">Products</a>
-            <a href="#">Blog</a>
-            <a href="#">Contact</a>
+            <Link to="/">Home</Link>
+            <Link to="#about">About</Link>
+            <Link to="/">Services</Link>
+            <Link to="/products">Products</Link>
+            <Link to="/">Blog</Link>
+            <Link to="/">Contact</Link>
+        </ul>
+
+        <ul>
+          <Link to="/login"><i class="fa-sharp fa-solid fa-right-to-bracket"></i></Link>
+          <Link to="/"><i class="fa-sharp fa-solid fa-cart-shopping"></i></Link>
+          <Link to="/"><i class="fa-solid fa-user"></i></Link>
         </ul>
 
         <div className="bars" onClick={()=>setopen(!open)}>

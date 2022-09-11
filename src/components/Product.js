@@ -5,7 +5,7 @@ const Product = ({product}) => {
   return (
     <div className="product">
     <div className="productimage">
-      <img src={`./images/${product.itemimage}`} alt={product.itemname} />
+      <img src={require(`../images/${product.itemimage}`)} alt={product.itemname} />
     </div>
     <div className="productdetails">
     <p className="brand">
