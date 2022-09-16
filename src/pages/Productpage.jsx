@@ -1,75 +1,56 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useEffect } from 'react'
 import Product from '../components/Product'
+import {items} from '../products'
+import {useParams} from 'react-router-dom'
+import Rating from '../components/Rating'
 
-const Productpage = () => {
-    const items=[
-        {
-            id:1,
-            itemname:'Toaster',
-            itemimage:'toaster.jpg',
-            itemdescription:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odioatque ad veniam eius?',
-            itemprice:200,
-            itemrating:4,
-            brand:'Samsung',
-        },
-        
-        {
-            id:2,
-            itemname:'Samsung TV',
-            itemimage:'ledtv.jpg',
-            itemdescription:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odioatque ad veniam eius?',
-            itemprice:750,
-            itemrating:5,
-            brand:'Samsung',
-        },
-        {
-            id:3,
-            itemname:'Double-door Fridge',
-            itemimage:'fridge.jpg',
-            itemdescription:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odioatque ad veniam eius?',
-            itemprice:370,
-            itemrating:3,
-            brand:'Nasco',
-        },
-        {
-            id:4,
-            itemname:'Blender',
-            itemimage:'blender.jpg',
-            itemdescription:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odioatque ad veniam eius?',
-            itemprice:120,
-            itemrating:5,
-            brand:'Binatone',
-        },
-    ]
+const Productpage = ({addtocart}) => {
+    let { id } = useParams();
+
+    const [products,setproducts]=useState([])
+    const [product,setproduct]=useState(null)
+
+ 
+    
+    useEffect(()=>{
+            setproduct(items.find(item=>String(item.id)===id)) 
+            console.log(id)
+            console.log(product)  
+
+    },[id])
+    
+    useEffect(() => {
+      setproducts(items.filter((item,index)=>{
+        return index<=3;
+      }))
+
+    }, [])
+    
+    
   return (
     <div>
         <div className='page full'>
-      <h3 className="heading">You searched for Blender</h3>
-      <div className="item">
+      <h3 className="heading">You searched for {product && product.itemname}</h3>
+     {product &&  <div className="item">
           <div className="image">
-            <img src={require("../images/blender.jpg")} alt="fridge" />
+            <img src={require(`../images/${product.itemimage}`)} alt={product.itemname} />
           </div>
           <div className="details">
-            <p className="itemname">Blender</p>
+            <p className="itemname">{product.itemname}</p>
             <p className="description">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
               molestias adipisci corrupti quae iste perferendis!
             </p>
-            <p className="rating">
-            
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-            
-            </p>
-            <button className="click">Buy Now</button>
+            <p className="itemprice">${product.itemprice}</p>
+            <Rating rating={product.itemrating } />
+            <button className="click" onClick={()=>{addtocart(product)}}>Buy Now</button>
           </div>
-        </div>
+        </div>}
     <h3 className="heading">Other Products in stock</h3>
       <div id="products">
         <div className="productgrid">
-        {items.map(element=><Product key={element.id} product={element}/>)}
+        {products && products.map(element=><Product key={element.id} product={element} addtocart={addtocart}/>)}
         </div>
       </div>
     </div>

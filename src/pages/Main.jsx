@@ -7,13 +7,13 @@ import Products from '../components/Products'
 import Services from '../components/Services'
 import Testimonials from '../components/Testimonials'
 
-const Main = () => {
+const Main = ({addtocart}) => {
   return (
     <main>
         <Home />
         <About />
         <Services />
-        <Products />
+        <Products addtocart={addtocart}/>
         <Blogs />
         <Testimonials />
         <Contact />

@@ -39,6 +39,17 @@
         font-weight: 500;
     }
 
+    .heading2{
+        color: $primary;
+        font-size: 1.45rem;
+        font-weight: 500;
+        margin-top: 3rem;
+    }
+
+    .text{
+        color: grey;
+    }
+
     &>.form{
         @extend .center;
         position: absolute;
@@ -130,7 +141,8 @@ img{
             font-size: .85rem;
             padding: .4rem 0;
         }
-        .rating{
+        span{
+            display: block;
             color: $secondary;
             padding-bottom: .8rem;
         }

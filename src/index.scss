@@ -58,12 +58,23 @@ header{
             color: #fff;
             font-size: .95rem;
 
+            sup{
+                background: $secondary;
+                padding: .6rem .8rem;
+                border-radius: 50%;
+            }
+
             i{
                 font-size: 1.5rem;
             }
 
             &:hover{
                 color: $secondary;
+
+                sup{
+                    background: #fff;
+                    color: $secondary;
+                }
             }
         }
     }
@@ -502,6 +513,47 @@ footer{
         color: #fff;
         font-size: .85rem;
         bottom: 1rem
+    }
+}
+
+.cartsection{
+    padding: 4rem 0 3rem;
+    .cartitem{
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow:0 0 .3rem rgba(0, 0, 0, 0.092);
+        padding: .6rem;
+        border-radius: .5rem;
+
+        .image{
+            width: 250px;
+            height: 230px;
+            background: lightgrey;
+        }
+
+        .details{
+            .itemname{
+                color: $primary;
+                font-weight: 500;
+            }
+
+            .itemdetails{
+                font-size: .9rem;
+                padding: .5rem 0;
+            }
+
+            i{
+                color: $secondary;
+                padding: .3rem 0;
+            }
+
+            .itemprice{
+                color: grey;
+            }
+        }
+
     }
 }
 

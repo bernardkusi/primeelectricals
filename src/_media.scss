@@ -19,6 +19,17 @@
     }
 }
 
+.cartsection{
+    .cartitem{
+        gap: .5rem;
+        .image{
+            width: 200px !important;
+            height: 180px !important;
+            flex: none;
+        }
+    }
+}
+
 }
 
 @media (max-width:850px) {
@@ -143,6 +154,21 @@
     }
 }
 
+.cartsection{
+    .cartitem{
+        gap: .3rem;
+        .image{
+            width: 160px !important;
+            height: 140px !important;
+            flex: none;
+        }
+
+        .click{
+            transform: scale(.9);
+        }
+    }
+}
+
 
 }
 
@@ -203,6 +229,23 @@
         .links{
             flex-direction: column;
             gap: 3rem;
+        }
+    }
+
+    .cartsection{
+        .cartitem{
+           .details{
+            .itemdetails{
+                display: none;            }
+           }
+           .image{
+            width: 140px !important;
+            height: 125px !important;
+            flex: none;
+        }
+            .click{
+                transform: scale(.9);
+            }
         }
     }
 }

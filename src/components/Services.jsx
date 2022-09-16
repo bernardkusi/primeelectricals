@@ -17,7 +17,7 @@ const Services = () => {
             <div className="service2">
               <div className="front">
                 <h1>
-                  <i class="fa-solid fa-truck-fast"></i>
+                  <i className="fa-solid fa-truck-fast"></i>
                 </h1>
               </div>
               <div className="back">
@@ -33,7 +33,7 @@ const Services = () => {
             <div className="service2">
               <div className="front">
                 <h1>
-                  <i class="fa-solid fa-money-bill-wave"></i>
+                  <i className="fa-solid fa-money-bill-wave"></i>
                 </h1>
               </div>
               <div className="back">
@@ -49,7 +49,7 @@ const Services = () => {
             <div className="service2">
               <div className="front">
                 <h1>
-                  <i class="fa-solid fa-handshake"></i>
+                  <i className="fa-solid fa-handshake"></i>
                 </h1>
               </div>
               <div className="back">
@@ -65,7 +65,7 @@ const Services = () => {
             <div className="service2">
               <div className="front">
                 <h1>
-                  <i class="fa-solid fa-globe"></i>
+                  <i className="fa-solid fa-globe"></i>
                 </h1>
               </div>
               <div className="back">
