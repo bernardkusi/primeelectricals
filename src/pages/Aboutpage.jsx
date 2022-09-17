@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
-const Aboutpage = () => {
+const Aboutpage = ({closenav}) => {
+    useEffect(() => {
+        closenav()
+       }, [])
   return (
     <div className='page full'>
         <h3 className="heading">Learn about us here</h3>

@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import  {Link} from 'react-router-dom'
 
-const Loginpage = () => {
+const Loginpage = ({closenav}) => {
+    useEffect(() => {
+        closenav()
+       }, [])
   return (
     <div className='page full'>
         <div className="form">

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import About from '../components/About'
 import Blogs from '../components/Blogs'
 import Contact from '../components/Contact'
@@ -7,7 +7,10 @@ import Products from '../components/Products'
 import Services from '../components/Services'
 import Testimonials from '../components/Testimonials'
 
-const Main = ({addtocart}) => {
+const Main = ({addtocart,closenav}) => {
+  useEffect(() => {
+    closenav()
+   }, [])
   return (
     <main>
         <Home />

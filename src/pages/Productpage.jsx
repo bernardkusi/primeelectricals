@@ -5,18 +5,20 @@ import {items} from '../products'
 import {useParams} from 'react-router-dom'
 import Rating from '../components/Rating'
 
-const Productpage = ({addtocart}) => {
+const Productpage = ({addtocart,closenav}) => {
     let { id } = useParams();
 
     const [products,setproducts]=useState([])
     const [product,setproduct]=useState(null)
 
  
+    useEffect(() => {
+        closenav()
+       }, [])
     
     useEffect(()=>{
             setproduct(items.find(item=>String(item.id)===id)) 
             console.log(id)
-            console.log(product)  
 
     },[id])
     

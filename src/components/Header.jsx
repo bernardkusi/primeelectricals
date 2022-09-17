@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import {Link} from 'react-router-dom'
 
-const Header = ({count}) => {
+const Header = ({open,togglenav,count}) => {
 
-  const [open,setopen]=useState(false);
+  
 
   return (
     <header className={open?'active':""}>
@@ -13,7 +13,7 @@ const Header = ({count}) => {
         <ul>
             <Link to="/">Home</Link>
             <Link to="/about">About</Link>
-            <Link to="/">Services</Link>
+            <Link to="/services">Services</Link>
             <Link to="/products">Products</Link>
             <Link to="/">Blog</Link>
             <Link to="/">Contact</Link>
@@ -25,7 +25,7 @@ const Header = ({count}) => {
           <Link to="/"><i className="fa-solid fa-user"></i></Link>
         </ul>
 
-        <div className="bars" onClick={()=>setopen(!open)}>
+        <div className="bars" onClick={togglenav}>
           <div className="bar"></div>
         </div>
     </header>

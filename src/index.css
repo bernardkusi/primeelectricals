@@ -193,6 +193,22 @@ img {
   min-height: 100vh;
 }
 
+.message {
+  position: fixed;
+  top: 6rem;
+  padding: .7rem .5rem;
+  background: rgba(255, 255, 255, 0.851);
+  color: #ff8400;
+  width: 96%;
+  max-width: 1000px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 4;
+  text-align: center;
+  border: 1px solid #097b6e;
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1014,6 +1030,9 @@ footer .copy {
   .cartsection .cartitem .click {
     -webkit-transform: scale(0.9);
             transform: scale(0.9);
+  }
+  .page .heading {
+    font-size: 1.5rem;
   }
 }
 /*# sourceMappingURL=index.css.map */

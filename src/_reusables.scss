@@ -157,3 +157,18 @@ img{
 .body{
     min-height: 100vh;
 }
+
+.message{
+    position: fixed;
+    top: 6rem;
+    padding: .7rem .5rem;
+    background: rgba(255, 255, 255, 0.851);
+    color: $secondary;
+    width: 96%;
+    max-width: 1000px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    text-align: center;
+    border: 1px solid $primary;
+}

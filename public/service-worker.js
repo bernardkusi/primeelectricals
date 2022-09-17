@@ -1,5 +1,5 @@
 const cacheName = 'v1';
-self.addEventListener('install', e => {
+this.addEventListener('install', e => {
   // once the SW is installed, go ahead and fetch the resources
   // to make this work offline
   e.waitUntil(
@@ -8,14 +8,14 @@ self.addEventListener('install', e => {
         '/',
         'index.html',
         'index.css',
-      ]).then(() => self.skipWaiting());
+      ]).then(() => this.skipWaiting());
     })
   );
 });
 
 // when the browser fetches a url, either response with
 // the cached object or go ahead and fetch the actual url
-self.addEventListener('fetch', event => {
+this.addEventListener('fetch', event => {
   event.respondWith(
     // ensure we check the *right* cache to match against
     caches.open(cacheName).then(cache => {

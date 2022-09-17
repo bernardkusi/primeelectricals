@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-const Signuppage = () => {
+const Signuppage = ({closenav}) => {
+
+    useEffect(() => {
+        closenav()
+       }, [])
+
   return (
     <div className='page full'>
          <div className="form" style={{marginTop:"3rem"}}>

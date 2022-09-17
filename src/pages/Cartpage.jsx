@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import Cartitem from '../components/Cartitem'
 
-const Cartpage = ({cart,removefromcart}) => {
+const Cartpage = ({cart,removefromcart,closenav}) => {
     const [total,settotal]=useState(0)
     let cost=0
     cart.forEach(element => {
@@ -12,6 +12,10 @@ const Cartpage = ({cart,removefromcart}) => {
     useEffect(() => {
         settotal(cost)
     }, [cost])
+
+    useEffect(() => {
+        closenav()
+       }, [])
     
   return (
     <div className='page full'>

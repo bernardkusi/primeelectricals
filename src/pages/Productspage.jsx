@@ -3,10 +3,13 @@ import { useState } from "react";
 import Product from "../components/Product";
 import { items } from "../products";
 
-const Productspage = ({addtocart}) => {
+const Productspage = ({addtocart,closenav}) => {
   const [products,setproducts]=useState([])
   useEffect(() => {
   setproducts(items)
+  }, [])
+  useEffect(() => {
+   closenav()
   }, [])
   
 
